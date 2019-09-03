@@ -66,19 +66,19 @@
 
 join、wait、sleep、yield、notify、notifyAll
 
-#####sleep
+##### sleep
 使当前线程暂停执行一段时间，让其他线程有机会继续执行。但**并不释放对象锁**。也就是说如果有synchronized同步块，其他线程仍然不能访问共享数据。sleep方法可以是低优先级的线程得到执行机会，当然也可以让同优先级、高优先级的线程有执行的机会。**sleep会自动苏醒，并自动执行sleep后面的方法**
 
-#####wait
+##### wait
 wait方法使当前线程暂停执行并**释放对象锁标识，wait方法被调用后，线程不会自动苏醒，需要别的线程调用同一个对象上的notify或者notifyAll方法，才能苏醒**
 
-#####join
+##### join
 join()方法使调用该方法的线程在此之前执行完毕，也就是等待该方法的线程执行完毕后再往下继续执行。注意该方法也需要捕捉异常。该影响只存在于执行join方法的线程和调用该线程的线程之间。**如在t1线程中调用t2.join(),则需要t2线程执行完后t1方能继续执行**
 
-#####yield
+##### yield
 该方法与sleep()类似，只是不能由用户指定暂停多长时间，并且yield（）方法只能让同优先级的线程有执行的机会。
 
-#####notify、notifyAll
+##### notify、notifyAll
 当调用notify()方法 后，将从对象的等待池中移走一个任意的线程并放到锁标志等待池中，只有锁标志等待池中线程能够获取锁标志；如果锁标志等待池中没有线程，则 notify()不起作用。notifyAll()则从对象等待池中移走所有等待那个对象的线程并放到锁标志等待池中。
 
 ### MVC的理解
@@ -91,7 +91,7 @@ MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(
 
 **Controller（控制器）：**接收用户请求，委托给模型进行处理（状态改变），处理完毕后把返回的模型数据返回给视图，由视图负责展示。主要使用的技术：servlet，Struts中的Action类等。
 
-​    MVC是一个框架模式，它强制性的使应用程序的输入、处理和输出分开。使用MVC应用程序被分成三个核心部件：模型、视图、控制器。它们各自处理自己的任务。最典型的MVC就是JSP + servlet + javabean的模式。
+    MVC是一个框架模式，它强制性的使应用程序的输入、处理和输出分开。使用MVC应用程序被分成三个核心部件：模型、视图、控制器。它们各自处理自己的任务。最典型的MVC就是JSP + servlet + javabean的模式。
 
 ##### MVC的优缺点
 
@@ -99,15 +99,16 @@ MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(
 
 　　**缺点：简单的小型项目，使用MVC设计反而会降低开发效率，层和层虽然相互分离，但是之间关联性太强，没有做到独立的重用。**
 
-###BeanFactory和FactoryBean的区别
+### BeanFactory和FactoryBean的区别
 
 BeanFactory和FactoryBean都是Spring Beans模块下的接口
 **BeanFactory**是spring简单工厂模式的接口类，spring IOC特性核心类提供从工厂类中获取bean的各种方法，是所有bean的容器。
 **FactoryBean**仍然是一个bean，但不同于普通bean，它的实现类最终也需要注册到BeanFactory中。它也是一个简单工厂模式的接口类，但是生产的是单一类型的对象，与BeanFactory生产多种类型对象不同，**是一个能生产或修饰对象生成的工厂Bean**
 
-###ThreadLocal
+### ThreadLocal
 内部存在一个ThreadLocalMap来维护数据，让每个ThreadLocal的数据存放在ThreadLocalMap中。
-####set方法
+
+#### set方法
 
 ```java
 public void set(T value) {
@@ -120,7 +121,7 @@ public void set(T value) {
     }
 ```
 
-####get方法
+#### get方法
 
 ```
 public T get() {
@@ -140,7 +141,7 @@ public T get() {
 
 ### getMap方法
 
-```java 
+```java 
  ThreadLocalMap getMap(Thread t) {
         return t.threadLocals;
     }
@@ -148,9 +149,9 @@ public T get() {
 
 set和get方法都是先找出当前的线程，然后获取当前的Thread的ThreadLocalMap对象，如果没有ThreadLocalMap对象则创建一个新的ThreadLocalMap对象，如果有，就通过ThreadLocalMap的方法存入对象或者取出对象，ThreadLocalMap维护的是一个弱引用的key,当value的指向为空时，GC会自动回收ThreadLocalMap对象
 
-###Spring在代码中获取bean的几种方式
+### Spring在代码中获取bean的几种方式
 
-#####方法一：在初始化时保存ApplicationContext对象 ：
+##### 方法一：在初始化时保存ApplicationContext对象 ：
 
 ```java
 ApplicationContext ac = new FileSystemXmlApplicationContext("applicationContext.xml"); 
@@ -162,7 +163,7 @@ ac.getBean("userService");
 
 说明：这样的方式适用于Spring框架的独立应用程序，须要程序通过配置文件初始化Spring。
 
-#####方法二：通过Spring提供的工具类获取ApplicationContext对象
+##### 方法二：通过Spring提供的工具类获取ApplicationContext对象
 
 ```java
 ApplicationContext ac1 = WebApplicationContextUtils.getRequiredWebApplicationContext(ServletContext sc); 
@@ -173,7 +174,7 @@ ac2.getBean("beanId");
 
 说明：这样的方式适合于採用Spring框架的B/S系统，通过ServletContext对象获取ApplicationContext对象。然后在通过它获取须要的类实例。上面两个工具方式的差别是，前者在获取失败时抛出异常。后者返回null。
 
-#####方法三：实现接口ApplicationContextAware：（推荐）
+##### 方法三：实现接口ApplicationContextAware：（推荐）
 
 ```java
 /**
@@ -208,23 +209,23 @@ LoadExploreTree bean = SpringUtils.getBean("loadExploreTree");
 
 ### Spring中Bean的作用域
 
-#####① singleton
+##### ① singleton
 
 使用该属性定义Bean时，IOC容器仅创建一个Bean实例，IOC容器每次返回的是同一个Bean实例。
 
-#####② prototype
+##### ② prototype
 
 使用该属性定义Bean时，IOC容器可以创建多个Bean实例，每次返回的都是一个新的实例。
 
-#####③ request
+##### ③ request
 
 该属性仅对HTTP请求产生作用，使用该属性定义Bean时，每次HTTP请求都会创建一个新的Bean，适用于WebApplicationContext环境。
 
-#####④ session
+##### ④ session
 
 该属性仅用于HTTP Session，同一个Session共享一个Bean实例。不同Session使用不同的实例。
 
-#####⑤ global-session
+##### ⑤ global-session
 
 该属性仅用于HTTP Session，同session作用域不同的是，所有的Session共享一个Bean实例。
 
@@ -257,11 +258,11 @@ privateBaseDao baseDao;
 privateBaseDao baseDao;
 ```
 
-###Java中静态代码块、构造代码块、构造函数、普通代码块
+### Java中静态代码块、构造代码块、构造函数、普通代码块
 
 #### 1、静态代码块
 
-#####格式
+##### 格式
 
 ```
 public class CodeBlock {
@@ -277,9 +278,9 @@ public class CodeBlock {
 
 　　静态代码块在类被加载的时候就运行了，而且只运行一次，并且优先于各种代码块以及构造函数。如果一个类中有多个静态代码块，会按照书写顺序依次执行。后面在比较的时候会通过具体实例来证明。
 
-####2、构造代码块
+#### 2、构造代码块
 
-#####格式
+##### 格式
 
 ```
 public class CodeBlock {
@@ -307,11 +308,11 @@ public class CodeBlock {
 
 ##### 执行时机
 
-​		每次执行构造方法时，就执行一次构造函数块。
+		每次执行构造方法时，就执行一次构造函数块。
 
 
 
-###死锁
+### 死锁
 
 #### 死锁的条件
 
@@ -357,9 +358,9 @@ RequestMapping requestMapping = (RequestMapping)AnnotatedElementUtils.findMerged
 
 
 
-###Bean的创建和BeanFactory创建
+### Bean的创建和BeanFactory创建
 
-####Spring容器的加载
+#### Spring容器的加载
 
 ```
  准备BeanFactory
@@ -386,17 +387,17 @@ RequestMapping requestMapping = (RequestMapping)AnnotatedElementUtils.findMerged
 
 ### JVM内存模型
 
-####线程独占
+#### 线程独占
 
-#####栈
+##### 栈
 
 >也叫方法栈，是线程私有的，线程在执行每个方法是都会同时创建一个栈区，用来存储局部变量表、操作栈、动态链接、方法出口等信息，调用方法时执行入栈，方法返回时进行出栈，
 
-#####本地方法栈
+##### 本地方法栈
 
 > 与栈类似，也是用来储存线程执行方法的信息，不同的是：执行Java方法时使用的是栈，执行native方法时则使用的是本地方法栈，
 
-#####程序计数器
+#####  程序计数器
 
 > 保存着当前线程所执行的字节码位置，每个线程工作时都有一个独立的计数器，程序计数器只为执行Java方法服务，执行native方法时，程序计数器为空。
 
@@ -422,7 +423,7 @@ RequestMapping requestMapping = (RequestMapping)AnnotatedElementUtils.findMerged
 
 >支持 如果存在一个事务，则支持当前事务，如果没有则以非事务是的方式执行
 
-Mandatory
+##### Mandatory
 
 >必要 如果存在事务，则支持当前事务，如果没有活动的事务，则抛出异常
 
@@ -430,7 +431,7 @@ Mandatory
 
 >总是开启一个新的事务。如果一个事务已经存在，则将这个存在的事务挂起
 
-Not_support
+##### Not_support
 
 > 总是以非事务的执行，并挂起任何存在的事务
 

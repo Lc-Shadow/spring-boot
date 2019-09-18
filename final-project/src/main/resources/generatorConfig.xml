@@ -30,7 +30,7 @@
         <javaClientGenerator targetPackage="com.lc.mapper.test2" targetProject="final-project\src\main\java\"
                              type="XMLMAPPER"/>
 
-        <table tableName="user" domainObjectName="User2">
+        <table tableName="user" domainObjectName="User2" mapperName="test">
             <!--mysql 配置-->
 <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
             <!--oracle 配置-->

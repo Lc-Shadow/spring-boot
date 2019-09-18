@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SpringBootMybatisXml/SpringBootMybatisXml.iml" filepath="$PROJECT_DIR$/SpringBootMybatisXml/SpringBootMybatisXml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBootAsync/async.iml" filepath="$PROJECT_DIR$/SpringBootAsync/async.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-Demo/demo.iml" filepath="$PROJECT_DIR$/spring-boot-Demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBootMybatis/demo (1) (com.lc.demo).iml" filepath="$PROJECT_DIR$/SpringBootMybatis/demo (1) (com.lc.demo).iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBootMybatisXml/dev.iml" filepath="$PROJECT_DIR$/SpringBootMybatisXml/dev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/final-project/final-project.iml" filepath="$PROJECT_DIR$/final-project/final-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBootSecurity/security.iml" filepath="$PROJECT_DIR$/SpringBootSecurity/security.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-boot.iml" filepath="$PROJECT_DIR$/.idea/spring-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springBootRedis/springBootRedis.iml" filepath="$PROJECT_DIR$/springBootRedis/springBootRedis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBootSwagger/swagger.iml" filepath="$PROJECT_DIR$/SpringBootSwagger/swagger.iml" />
     </modules>
   </component>
 </project>

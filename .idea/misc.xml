@@ -4,7 +4,15 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/SpringBootMybatisXml/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-boot-Demo/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootAsync/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootMybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/springBootRedis/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootSecurity/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootSwagger/pom.xml" />
+        <option value="$PROJECT_DIR$/final-project/pom.xml" />
       </list>
     </option>
   </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

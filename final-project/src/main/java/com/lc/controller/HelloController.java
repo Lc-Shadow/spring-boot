@@ -5,6 +5,8 @@ import com.lc.mapper.test2.User2Mapper;
 import com.lc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -42,5 +44,10 @@ public class HelloController {
         user.setPassword("db1User2");
         userMapper2.insert(user);
         return "addUser2 Success";
+    }
+    @PostMapping("users")
+    public String checkUsers(@RequestBody User user){
+        System.out.println(user);
+        return "SUccess";
     }
 }
